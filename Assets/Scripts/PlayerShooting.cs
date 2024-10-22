@@ -27,7 +27,7 @@ public class PlayerShooting : MonoBehaviour
     void Shoot()
     {
         gunAnim.SetTrigger("shoot");
-        GameObject newBullet = Instantiate(bulletPrefab, shootPos.position, Quaternion.identity);
+        GameObject newBullet = Instantiate(bulletPrefab, shootPos.position, Camera.main.transform.rotation * Quaternion.Euler(90, 0, 0));
         newBullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * shootSpeed * Time.deltaTime;
         Destroy(newBullet, 2);
     }

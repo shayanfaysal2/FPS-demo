@@ -48,4 +48,12 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         cc.Move(velocity * Time.deltaTime);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            print("Ouch!");
+        }
+    }
 }
